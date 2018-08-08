@@ -1,0 +1,14 @@
+﻿.calendar_wrapper {
+  color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.buttons_wrapper {
+
+  margin:  auto;
+  padding-top:30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

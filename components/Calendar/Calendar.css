@@ -1,0 +1,13 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 250px;
+    border: 1px solid black;
+    margin: 30px;
+    padding: 20px;
+    height: 250px;
+
+}
+.calendar__title{
+    text-align: center;
+}
