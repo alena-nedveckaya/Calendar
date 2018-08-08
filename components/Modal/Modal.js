@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {closeModal} from "../../src/actions/Modal_actions";
-import './NewEvent.css'
+import './Modal.scss'
 import {EVENT_CLOSE_POPUPS, popupEvents} from "../../events";
 
 class Modal extends React.PureComponent{
@@ -29,7 +29,13 @@ class Modal extends React.PureComponent{
         this.state ={
             currentTime: moment().get('h'),
             times,
-            reminder
+            reminder,
+            isChecked:false,
+            selectedTime:'',
+            selectedLabel:'',
+            selectedTimePeriod:'',
+            selectedTimeReminder:''
+
         }
     }
     // static propTypes = {
@@ -37,9 +43,7 @@ class Modal extends React.PureComponent{
     //     modal:propTypes.object.isRequired
     // }
 
-    // closeModal = (eo) => {
-    //     this.props.dispatch(closeModal())
-    // };
+
     componentDidMount() {
         popupEvents.addListener(EVENT_CLOSE_POPUPS,this.props.toggleActive);
 
@@ -47,7 +51,16 @@ class Modal extends React.PureComponent{
 
     };
     componentWillUnmount() {
+        console.log('unmount')
         popupEvents.removeListener(EVENT_CLOSE_POPUPS, this.props.toggleActive);
+        this.setState({
+            isChecked:false,
+            selectedTime:'',
+            selectedLabel:'',
+            selectedTimePeriod:'',
+            selectedTimeReminder:''
+
+        })
     }
 
 
@@ -55,13 +68,36 @@ class Modal extends React.PureComponent{
         event.stopPropagation();
     };
 
+    isChangeSelectTime = (e)=>{
+        this.setState({selectedTime:e.currentTarget.value})
+        console.log(e.currentTarget.value)
+
+    };
+    isChangeSelectTimePeriod = (e)=>{
+        this.setState({selectedTimePeriod:e.currentTarget.value})
+        console.log(e.currentTarget.value)
+
+    };
+    isChangeSelectReminder = (e) =>{
+        this.setState({selectedTimeReminder:e.currentTarget.value})
+        console.log(e.currentTarget.value)
+    };
+    isChangeChecked = () => {
+        this.setState({isChecked: !this.state.isChecked})
+    };
+    isChangeLabel = (e) =>{
+        this.setState({selectedLabel:e.currentTarget.value})
+    };
+
     render() {
-        console.log('пропсы модального окна', this.props.modal)
+        console.log('state модального окна', this.state)
         const {isOpen} = this.props.modal;
-        const {times, reminder} = this.state
+        const {times, reminder, isChecked} = this.state;
+        const {isChangeSelectTime, isChangeSelectReminder, isChangeChecked, isChangeLabel, isChangeSelectTimePeriod} = this;
         // var moment = require('moment');
-        let optionsTimes = times.map((v,i) => <option key={i}>{v}</option>);
-        let optionsReminder = reminder.map((v,i) => <option key={i}>{v.title}</option>)
+
+        let optionsTimes = times.map((v,i) => <option key={i} value={v}>{v}</option>);
+        let optionsReminder = reminder.map((v,i) => <option key={i} value={`${v.value} '${v.time}'`}>{v.title}</option>)
 
 
         if (!isOpen) return null;
@@ -73,23 +109,25 @@ class Modal extends React.PureComponent{
                     <div className={'newEvent__close-window'} onClick={this.props.toggleActive}></div>
                     <div>
                         <input defaultValue={'Название события'}/>
-                        <select defaultValue={'Выбрать метку'}>
-                            <option>Работа</option>
-                            <option>Семья</option>
-                            <option>Дом</option>
+                        <select defaultValue={'Выбрать метку'} onClick={isChangeLabel}>
+                            <option value={'work'}>Работа</option>
+                            <option value={'family'}>Семья</option>
+                            <option value={'home'}>Дом</option>
                         </select>
                     </div>
                     <div>
-                        {/*<input type="text" name="time" list="times"/>*/}
-                            {/*<datalist id="times">*/}
-                                {/*{options}*/}
-                            {/*</datalist>*/}
-                       <select>
+                       <select onClick={isChangeSelectTime}>
                            {optionsTimes}
                        </select>
+                        {isChecked &&
+                        <select onClick={isChangeSelectTimePeriod}>
+                            {optionsTimes}
+                        </select>}
                     </div>
+                    <input className={'switcher__input'} type={'checkbox'} name={'period'} id={'switcher'} onClick={isChangeChecked} checked={isChecked} />
+                    <label className={'switcher__label'} htmlFor="switcher"><span className={'switcher__text'}>Период</span></label>
                     <div>
-                        <select defaultValue={'Напомнить за..'}>
+                        <select defaultValue={'Напомнить за..'} onClick={isChangeSelectReminder}>
                             {optionsReminder}
                         </select>
                     </div>

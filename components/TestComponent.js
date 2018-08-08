@@ -111,7 +111,7 @@ class TestComponent extends React.PureComponent {
 
         return (
             <div onMouseDown={this.appMouseDown}>
-                <Modal/>
+                {this.props.modal.isOpen && <Modal/>}
                 <div className="STestComponent">
                     <div className={'buttons_wrapper'}>
                         <Button title={'Новое событие'} type={'new'} cbOnclick={this.props.toggleActive}/>
