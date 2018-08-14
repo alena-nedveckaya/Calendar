@@ -69,6 +69,10 @@ class TestComponent extends React.PureComponent {
         // }
     };
 
+    selectedDay = (day) => {
+        this.setState({selectedDay:day});
+        this.props.toggleActive();
+    }
 
 
 
@@ -105,7 +109,7 @@ class TestComponent extends React.PureComponent {
         console.log('state', this.state);
 
 
-        const {handlePrevMonth, handleNextMonth} = this;
+        const {handlePrevMonth, handleNextMonth, selectedDay} = this;
         const {state: {month, prevMonth, nextMonth, newEvent, listEvents, setting, upcoming}} = this;
         const {openModal} = this;
 
@@ -121,9 +125,9 @@ class TestComponent extends React.PureComponent {
                     </div>
                     <div className={'calendar_wrapper'}>
                         <button onClick={handlePrevMonth}>prev</button>
-                        <Calendar date={prevMonth}/>
-                        <Calendar date={month}/>
-                        <Calendar date={nextMonth}/>
+                        <Calendar date={prevMonth} cbSelectDay = {selectedDay}/>
+                        <Calendar date={month} cbSelectDay = {selectedDay}/>
+                        <Calendar date={nextMonth} cbSelectDay = {selectedDay}/>
                         <button onClick={handleNextMonth}>next</button>
                     </div>
                 </div>
@@ -143,7 +147,7 @@ const mapDispatchToProps = function (dispatch, ownProps) {
         }
     }
 
-}
+};
 {
 
 }

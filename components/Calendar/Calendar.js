@@ -2,6 +2,8 @@ import React from 'react';
 import propTypes from 'prop-types';
 import './Calendar.css'
 import Day from "../Day/Day";
+import connect from "react-redux/es/connect/connect";
+import {openModal} from "../../src/actions/Modal_actions";
 
 // import moment from 'moment/src/moment';
 
@@ -19,7 +21,7 @@ class Calendar extends React.PureComponent {
     render() {
         const {props:{date}}=this;
         var moment = require('moment');
-        // console.log('calendar', date.format('YYYY MM DD'))
+        console.log('calendar date', date)
 
         let daysInMonth = date.daysInMonth();
         let firstDayInMonth = date.set('date',1).isoWeekday();
@@ -27,7 +29,7 @@ class Calendar extends React.PureComponent {
         // console.log('firstDayInMonth', firstDayInMonth);
 
         const Days = [...Array(daysInMonth)].map((v, i) => {
-                return <Day key={i} day={i + 1} firstDayInMonth={firstDayInMonth}/>
+                return <Day key={i} date={date} day={i + 1} firstDayInMonth={firstDayInMonth} cbSelectDay={this.props.cbSelectDay}/>
             }
         );
 
@@ -44,4 +46,4 @@ class Calendar extends React.PureComponent {
     }
 }
 
-export default Calendar
+export default (Calendar);
