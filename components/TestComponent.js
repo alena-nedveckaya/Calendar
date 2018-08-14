@@ -43,7 +43,9 @@ class TestComponent extends React.PureComponent {
             newEvent: false,
             listEvents: false,
             upcoming: false,
-            setting: false
+            setting: false,
+            selectedDay: moment(),
+            selectedDayFormat: moment().format('YYYY MM DD')
         })
     }
 
@@ -69,8 +71,9 @@ class TestComponent extends React.PureComponent {
         // }
     };
 
-    selectedDay = (day) => {
-        this.setState({selectedDay:day});
+    selectDay = (day) => {
+        var moment = require('moment');
+        this.setState({selectedDay:day, selectedDayFormat:day.format('YYYY MM D')});
         this.props.toggleActive();
     }
 
@@ -109,13 +112,13 @@ class TestComponent extends React.PureComponent {
         console.log('state', this.state);
 
 
-        const {handlePrevMonth, handleNextMonth, selectedDay} = this;
-        const {state: {month, prevMonth, nextMonth, newEvent, listEvents, setting, upcoming}} = this;
+        const {handlePrevMonth, handleNextMonth, selectDay} = this;
+        const {state: {month, prevMonth, nextMonth, newEvent, listEvents, setting, upcoming, selectedDay}} = this;
         const {openModal} = this;
 
         return (
             <div onMouseDown={this.appMouseDown}>
-                {this.props.modal.isOpen && <Modal/>}
+                {this.props.modal.isOpen && <Modal value={selectedDay}/>}
                 <div className="STestComponent">
                     <div className={'buttons_wrapper'}>
                         <Button title={'Новое событие'} type={'new'} cbOnclick={this.props.toggleActive}/>
@@ -125,9 +128,9 @@ class TestComponent extends React.PureComponent {
                     </div>
                     <div className={'calendar_wrapper'}>
                         <button onClick={handlePrevMonth}>prev</button>
-                        <Calendar date={prevMonth} cbSelectDay = {selectedDay}/>
-                        <Calendar date={month} cbSelectDay = {selectedDay}/>
-                        <Calendar date={nextMonth} cbSelectDay = {selectedDay}/>
+                        <Calendar date={prevMonth} cbSelectDay = {selectDay}/>
+                        <Calendar date={month} cbSelectDay = {selectDay}/>
+                        <Calendar date={nextMonth} cbSelectDay = {selectDay}/>
                         <button onClick={handleNextMonth}>next</button>
                     </div>
                 </div>

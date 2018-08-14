@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {closeModal} from "../../src/actions/Modal_actions";
 import './Modal.scss'
 import {EVENT_CLOSE_POPUPS, popupEvents} from "../../events";
+import InputDate from "../InputDate/InputDate";
 
 class Modal extends React.PureComponent{
     constructor(props){
@@ -94,6 +95,7 @@ class Modal extends React.PureComponent{
         const {isOpen} = this.props.modal;
         const {times, reminder, isChecked} = this.state;
         const {isChangeSelectTime, isChangeSelectReminder, isChangeChecked, isChangeLabel, isChangeSelectTimePeriod} = this;
+        const {value} = this.props
         // var moment = require('moment');
 
         let optionsTimes = times.map((v,i) => <option key={i} value={v}>{v}</option>);
@@ -109,11 +111,15 @@ class Modal extends React.PureComponent{
                     <div className={'newEvent__close-window'} onClick={this.props.toggleActive}></div>
                     <div>
                         <input defaultValue={'Название события'}/>
+
                         <select defaultValue={'Выбрать метку'} onClick={isChangeLabel}>
                             <option value={'work'}>Работа</option>
                             <option value={'family'}>Семья</option>
                             <option value={'home'}>Дом</option>
                         </select>
+                    </div>
+                    <div>
+                        <InputDate defValue={value.toDate()}/>
                     </div>
                     <div>
                        <select onClick={isChangeSelectTime}>
