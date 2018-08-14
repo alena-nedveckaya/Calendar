@@ -81,10 +81,13 @@ class Modal extends React.PureComponent{
     isChangeLabel = (e) =>{
         this.setState({selectedLabel:e.currentTarget.value})
     };
+    isChangeNameEvent = (e) =>{
+        this.setState({selectedNameEvent:e.currentTarget.value})
+    };
 
     saveCurrEvent = () => {
-        const {selectedTime, selectedLabel, selectedTimeReminder ,selectedTimePeriod} = this.state;
-        if(selectedTime && selectedLabel && selectedTimeReminder && selectedTimePeriod && selectedTime) {
+        const {selectedTime, selectedLabel, selectedTimeReminder ,selectedNameEvent} = this.state;
+        if(selectedNameEvent && selectedTime && selectedLabel && selectedTimeReminder && selectedTime) {
 
         }
     };
@@ -92,8 +95,8 @@ class Modal extends React.PureComponent{
     render() {
         console.log('state модального окна', this.state)
         const {isOpen} = this.props.modal;
-        const {times, reminder, isChecked} = this.state;
-        const {isChangeSelectTime, isChangeSelectReminder, isChangeChecked, isChangeLabel, isChangeSelectTimePeriod,isChangeNameEvent} = this;
+        const {times, reminder, isChecked, errorValid} = this.state;
+        const {isChangeSelectTime, isChangeSelectReminder, isChangeChecked, isChangeLabel, isChangeSelectTimePeriod,isChangeNameEvent, isChangeDescription} = this;
 
         const {value} = this.props
         // var moment = require('moment');
@@ -112,7 +115,8 @@ class Modal extends React.PureComponent{
                     <div>
                         <input onBlur={isChangeNameEvent} placeholder={'Название события'}/>
 
-                        <select defaultValue={'Выбрать метку'} onClick={isChangeLabel}>
+                        <select defaultValue={'Выбрать метку'} onChange={isChangeLabel}>
+                            <option value='' selected hidden>Выбрать метку</option>
                             <option value={'work'}>Работа</option>
                             <option value={'family'}>Семья</option>
                             <option value={'home'}>Дом</option>
@@ -122,23 +126,25 @@ class Modal extends React.PureComponent{
                         <InputDate defValue={value.toDate()}/>
                     </div>
                     <div>
-                       <select onFocus={isChangeSelectTime}>
+                       <select onChange={isChangeSelectTime}>
                            {optionsTimes}
                        </select>
                         {isChecked &&
-                        <select onClick={isChangeSelectTimePeriod}>
+                        <select onChange={isChangeSelectTimePeriod}>
                             {optionsTimes}
                         </select>}
                     </div>
                     <input className={'switcher__input'} type={'checkbox'} name={'period'} id={'switcher'} onClick={isChangeChecked} checked={isChecked} />
                     <label className={'switcher__label'} htmlFor="switcher"><span className={'switcher__text'}>Период</span></label>
                     <div>
-                        <select defaultValue={'Напомнить за..'} onClick={isChangeSelectReminder}>
+                        <select defaultValue={'Напомнить за..'} onChange={isChangeSelectReminder}>
+                            <option value='' selected hidden>Напомнить за..</option>
                             {optionsReminder}
                         </select>
                     </div>
+                    {errorValid && <div>Заполните все поля для события</div>}
                     <div>
-                        <textarea defaultValue={'Примечание'}></textarea>
+                        <textarea onChange = {isChangeDescription} placeholder={'Примечание'}/>
                     </div>
                     <div>
                         <button>Отмена</button>
