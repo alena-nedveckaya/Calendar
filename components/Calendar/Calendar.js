@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import './Calendar.css'
 import Day from "../Day/Day";
+import 'moment/locale/ru';
 import connect from "react-redux/es/connect/connect";
 import {openModal} from "../../src/actions/Modal_actions";
 
@@ -21,6 +22,7 @@ class Calendar extends React.PureComponent {
     render() {
         const {props:{date}}=this;
         var moment = require('moment');
+        moment.locale('ru');
         console.log('calendar date', date)
 
         let daysInMonth = date.daysInMonth();

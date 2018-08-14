@@ -36,7 +36,6 @@ class Modal extends React.PureComponent{
             selectedLabel:'',
             selectedTimePeriod:'',
             selectedTimeReminder:''
-
         }
     }
     // static propTypes = {
@@ -47,9 +46,6 @@ class Modal extends React.PureComponent{
 
     componentDidMount() {
         popupEvents.addListener(EVENT_CLOSE_POPUPS,this.props.toggleActive);
-
-
-
     };
     componentWillUnmount() {
         console.log('unmount')
@@ -60,11 +56,8 @@ class Modal extends React.PureComponent{
             selectedLabel:'',
             selectedTimePeriod:'',
             selectedTimeReminder:''
-
         })
     }
-
-
         preventClosePopups = (event) => {
         event.stopPropagation();
     };
@@ -72,7 +65,6 @@ class Modal extends React.PureComponent{
     isChangeSelectTime = (e)=>{
         this.setState({selectedTime:e.currentTarget.value})
         console.log(e.currentTarget.value)
-
     };
     isChangeSelectTimePeriod = (e)=>{
         this.setState({selectedTimePeriod:e.currentTarget.value})
@@ -90,11 +82,19 @@ class Modal extends React.PureComponent{
         this.setState({selectedLabel:e.currentTarget.value})
     };
 
+    saveCurrEvent = () => {
+        const {selectedTime, selectedLabel, selectedTimeReminder ,selectedTimePeriod} = this.state;
+        if(selectedTime && selectedLabel && selectedTimeReminder && selectedTimePeriod && selectedTime) {
+
+        }
+    };
+
     render() {
         console.log('state модального окна', this.state)
         const {isOpen} = this.props.modal;
         const {times, reminder, isChecked} = this.state;
-        const {isChangeSelectTime, isChangeSelectReminder, isChangeChecked, isChangeLabel, isChangeSelectTimePeriod} = this;
+        const {isChangeSelectTime, isChangeSelectReminder, isChangeChecked, isChangeLabel, isChangeSelectTimePeriod,isChangeNameEvent} = this;
+
         const {value} = this.props
         // var moment = require('moment');
 
@@ -110,7 +110,7 @@ class Modal extends React.PureComponent{
                     </div>
                     <div className={'newEvent__close-window'} onClick={this.props.toggleActive}></div>
                     <div>
-                        <input defaultValue={'Название события'}/>
+                        <input onBlur={isChangeNameEvent} placeholder={'Название события'}/>
 
                         <select defaultValue={'Выбрать метку'} onClick={isChangeLabel}>
                             <option value={'work'}>Работа</option>
@@ -122,7 +122,7 @@ class Modal extends React.PureComponent{
                         <InputDate defValue={value.toDate()}/>
                     </div>
                     <div>
-                       <select onClick={isChangeSelectTime}>
+                       <select onFocus={isChangeSelectTime}>
                            {optionsTimes}
                        </select>
                         {isChecked &&
@@ -142,7 +142,7 @@ class Modal extends React.PureComponent{
                     </div>
                     <div>
                         <button>Отмена</button>
-                        <button>Сохранить</button>
+                        <button onClick = {this.saveCurrEvent}>Сохранить</button>
                     </div>
                 </div>
             </div>
