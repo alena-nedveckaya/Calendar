@@ -84,12 +84,24 @@ class Modal extends React.PureComponent{
     isChangeNameEvent = (e) =>{
         this.setState({selectedNameEvent:e.currentTarget.value})
     };
+    isChangeDescription = (e) =>{
+        this.setState({selectedDescription:e.currentTarget.value})
+    };
 
     saveCurrEvent = () => {
-        const {selectedTime, selectedLabel, selectedTimeReminder ,selectedNameEvent} = this.state;
-        if(selectedNameEvent && selectedTime && selectedLabel && selectedTimeReminder && selectedTime) {
-
-        }
+        const {selectedTime, selectedLabel, selectedTimeReminder, selectedTimePeriod ,selectedNameEvent, selectedDescription} = this.state;
+        if(selectedNameEvent && selectedTime && selectedLabel && selectedTimeReminder && selectedDescription) {
+            this.setState({
+                newEvent: {
+                    name: selectedNameEvent,
+                    label: selectedLabel,
+                    date: 'selectedNameEvent',
+                    time: {start: selectedTime, end: selectedTimePeriod},
+                    description: selectedDescription,
+                },
+                errorValid: false,
+            })
+        } else { this.setState({ errorValid: true }) }
     };
 
     render() {
@@ -111,8 +123,8 @@ class Modal extends React.PureComponent{
                 <div className={'newEvent'} onMouseDown={this.preventClosePopups}>
                     <div className={'newEvent__title'}>Добавить новое событие
                     </div>
-                    <div className={'newEvent__close-window'} onClick={this.props.toggleActive}></div>
-                    <div>
+                    <div className={'newEvent__close-window'} onClick={this.props.toggleActive}>+</div>
+                    <div className={'newEvent__row'}>
                         <input onBlur={isChangeNameEvent} placeholder={'Название события'}/>
 
                         <select defaultValue={'Выбрать метку'} onChange={isChangeLabel}>
@@ -122,10 +134,12 @@ class Modal extends React.PureComponent{
                             <option value={'home'}>Дом</option>
                         </select>
                     </div>
-                    <div>
+                    <div className={'newEvent__date'}>
+                        <div>Выберите дату:</div>
                         <InputDate defValue={value.toDate()}/>
                     </div>
-                    <div>
+                    <div className={'newEvent__time'}>
+                        <div>Выберите время:</div>
                        <select onChange={isChangeSelectTime}>
                            {optionsTimes}
                        </select>
@@ -134,19 +148,21 @@ class Modal extends React.PureComponent{
                             {optionsTimes}
                         </select>}
                     </div>
-                    <input className={'switcher__input'} type={'checkbox'} name={'period'} id={'switcher'} onClick={isChangeChecked} checked={isChecked} />
-                    <label className={'switcher__label'} htmlFor="switcher"><span className={'switcher__text'}>Период</span></label>
-                    <div>
+                    <div className={'newEvent__checkbox'}>
+                        <input className={'switcher__input'} type={'checkbox'} name={'period'} id={'switcher'} onClick={isChangeChecked} checked={isChecked} />
+                        <label className={'switcher__label'} htmlFor="switcher"><span className={'switcher__text'}>Период</span></label>
+                    </div>
+                    <div className={'newEvent__remember'}>
                         <select defaultValue={'Напомнить за..'} onChange={isChangeSelectReminder}>
                             <option value='' selected hidden>Напомнить за..</option>
                             {optionsReminder}
                         </select>
                     </div>
-                    {errorValid && <div>Заполните все поля для события</div>}
-                    <div>
+                    <div className={'newEvent__description'}>
                         <textarea onChange = {isChangeDescription} placeholder={'Примечание'}/>
                     </div>
-                    <div>
+                    {errorValid && <div className={"newEvent__error"}>Заполните все поля для события</div>}
+                    <div className={'newEvent__buttons'}>
                         <button>Отмена</button>
                         <button onClick = {this.saveCurrEvent}>Сохранить</button>
                     </div>

@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-family: Geneva, Arial, Helvetica, sans-serif;
 }
 .buttons_wrapper {
 

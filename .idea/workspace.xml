@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d3a8e7cd-ae86-4baa-b834-736477d994c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/InputDate/InputDate.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/InputDate/InputDate.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modal/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Modal/Modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modal/Modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TestComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/TestComponent.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,32 +81,40 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bat" value="3" />
-          <entry key="js" value="10" />
+          <entry key="css" value="1" />
+          <entry key="js" value="11" />
           <entry key="json" value="2" />
+          <entry key="scss" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Batch" value="2" />
+          <entry key="CSS" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="10" />
+          <entry key="JavaScript" value="11" />
           <entry key="PLAIN_TEXT" value="1" />
+          <entry key="SCSS" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="bat" value="10" />
-          <entry key="js" value="1228" />
+          <entry key="css" value="20" />
+          <entry key="js" value="1687" />
           <entry key="json" value="22" />
-          <entry key="txt" value="61" />
+          <entry key="scss" value="447" />
+          <entry key="txt" value="131" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Batch" value="10" />
+          <entry key="CSS" value="20" />
           <entry key="JSON" value="22" />
-          <entry key="JavaScript" value="1228" />
-          <entry key="PLAIN_TEXT" value="61" />
+          <entry key="JavaScript" value="1687" />
+          <entry key="PLAIN_TEXT" value="131" />
+          <entry key="SCSS" value="447" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -162,11 +173,50 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/Modal/Modal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="461">
+              <caret line="162" column="26" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/Modal/Modal.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/TestComponent.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="5" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/InputDate/InputDate.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/InputDate/InputDate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -212,7 +262,6 @@
         <option value="$PROJECT_DIR$/components/Buttons/ButtonNewEvent.js" />
         <option value="$PROJECT_DIR$/components/Buttons/Buttons.css" />
         <option value="$PROJECT_DIR$/components/Buttons/Button.js" />
-        <option value="$PROJECT_DIR$/components/TestComponent.css" />
         <option value="$PROJECT_DIR$/components/NewEvent/NewEvent.css" />
         <option value="$PROJECT_DIR$/components/NewEvent/NewEvent.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
@@ -235,7 +284,11 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/components/TestComponent.js" />
         <option value="$PROJECT_DIR$/components/Calendar/Calendar.js" />
+        <option value="$PROJECT_DIR$/components/InputDate/InputDate.js" />
+        <option value="$PROJECT_DIR$/components/InputDate/InputDate.scss" />
+        <option value="$PROJECT_DIR$/components/TestComponent.css" />
         <option value="$PROJECT_DIR$/components/Modal/Modal.js" />
+        <option value="$PROJECT_DIR$/components/Modal/Modal.scss" />
       </list>
     </option>
   </component>
@@ -257,7 +310,9 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -274,6 +329,12 @@
               <item name="Calendar API" type="b2602c69:ProjectViewProjectNode" />
               <item name="Calendar API" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Calendar API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Calendar API" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="InputDate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Calendar API" type="b2602c69:ProjectViewProjectNode" />
@@ -354,7 +415,7 @@
       <workItem from="1534189078774" duration="1257000" />
       <workItem from="1534193072592" duration="759000" />
       <workItem from="1534269167111" duration="4461000" />
-      <workItem from="1534285391067" duration="2332000" />
+      <workItem from="1534285391067" duration="4761000" />
     </task>
     <task id="LOCAL-00001" summary="Добавлена локализация для календаря">
       <created>1534282359355</created>
@@ -363,11 +424,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534282359355</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Сохранение всех полей в стейт(пока что) для создания нового события">
+      <created>1534290919779</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1534290919780</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63294000" />
+    <option name="totallyTimeSpent" value="65723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -401,7 +469,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавлена локализация для календаря" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена локализация для календаря" />
+    <MESSAGE value="Сохранение всех полей в стейт(пока что) для создания нового события" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сохранение всех полей в стейт(пока что) для создания нового события" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/moment/README.md" />
@@ -424,13 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/TestComponent.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -597,13 +659,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Modal/Modal.js">
+    <entry file="file://$PROJECT_DIR$/components/InputDate/InputDate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="21">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/InputDate/InputDate.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/TestComponent.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Modal/Modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="162" column="26" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Modal/Modal.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
         </state>
       </provider>
     </entry>
